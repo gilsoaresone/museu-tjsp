@@ -59,7 +59,7 @@
                 "output": "media"
               },
               {
-                "glob": "video.mp4",
+                "glob": "videoMuseu.mp4",
                 "input": ".",
                 "output": "media"
               }
@@ -127,7 +127,7 @@
                 "output": "media"
               },
               {
-                "glob": "video.mp4",
+                "glob": "videoMuseu.mp4",
                 "input": ".",
                 "output": "media"
               }
