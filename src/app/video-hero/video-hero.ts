@@ -6,8 +6,6 @@ import { afterNextRender, Component, ElementRef, viewChild } from '@angular/core
   styleUrl: './video-hero.scss'
 })
 export class VideoHeroComponent {
-  private readonly fallbackVideoSource =
-    'https://github.com/gilsoaresone/museu-tjsp/releases/download/site-assets/video.mp4';
   private readonly videoElement = viewChild.required<ElementRef<HTMLVideoElement>>('heroVideo');
 
   constructor() {
@@ -21,16 +19,6 @@ export class VideoHeroComponent {
     const tryPlay = () => {
       void video.play().catch(() => undefined);
     };
-    const loadFallbackSource = () => {
-      if (video.currentSrc.includes('/releases/download/site-assets/video.mp4')) {
-        return;
-      }
-
-      video.src = this.fallbackVideoSource;
-      video.load();
-      video.addEventListener('loadeddata', tryPlay, { once: true });
-      video.addEventListener('canplay', tryPlay, { once: true });
-    };
 
     // Reinforce the autoplay constraints browsers check before allowing playback.
     video.autoplay = true;
@@ -38,7 +26,6 @@ export class VideoHeroComponent {
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
-    video.addEventListener('error', loadFallbackSource, { once: true });
 
     if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
       tryPlay();
