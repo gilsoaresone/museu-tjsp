@@ -1,0 +1,88 @@
+<header class="museum-header" aria-label="Cabecalho principal">
+  <div class="museum-header__topbar">
+    <button type="button" class="museum-header__contrast-button">
+      <span>Alto contrast</span>
+      <span class="museum-header__contrast-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="museum-header__font-controls" aria-label="Controles visuais de tamanho do texto">
+      <button type="button" class="museum-header__font-button" aria-label="Diminuir texto">
+        <span class="museum-header__font-icon museum-header__font-icon--small" aria-hidden="true">A-</span>
+      </button>
+      <button type="button" class="museum-header__font-button" aria-label="Aumentar texto">
+        <span class="museum-header__font-icon museum-header__font-icon--large" aria-hidden="true">A+</span>
+      </button>
+    </div>
+
+    <div class="museum-header__notice-strip" aria-label="Header notices slider">
+      <span class="museum-header__notice-icon" aria-hidden="true">!</span>
+      <span class="museum-header__notice-counter">{{ activeNotice.counter }}</span>
+      <a href="#" class="museum-header__notice-link">{{ activeNotice.text }}</a>
+    </div>
+
+    <a href="#" class="museum-header__notice-cta">Ler noticias</a>
+
+    <a href="#" class="museum-header__shop-link">Fale conosco</a>
+
+    <div class="museum-header__socials" aria-label="Social links">
+      <a href="#" class="museum-header__social-link" aria-label="Instagram">
+        <svg class="museum-header__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.8A3.7 3.7 0 1 0 15.7 12 3.7 3.7 0 0 0 12 8.3Z"
+          />
+        </svg>
+      </a>
+      <a href="#" class="museum-header__social-link" aria-label="Facebook">
+        <svg class="museum-header__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M13.59 22v-8.03h2.7l.4-3.13h-3.1V8.84c0-.9.25-1.52 1.54-1.52H16.8V4.5c-.29-.04-1.18-.1-2.25-.1-2.23 0-3.76 1.36-3.76 3.87v2.57H8.25v3.13h2.54V22h2.8Z"
+          />
+        </svg>
+      </a>
+      <a href="#" class="museum-header__social-link" aria-label="X">
+        <svg class="museum-header__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M18.9 3H21l-6.87 7.86L22.2 21h-6.33l-4.95-6.46L5.28 21H3.18l7.34-8.4L2.8 3h6.48l4.47 5.89L18.9 3Zm-1.1 16.2h1.17L8.64 4.73H7.4L17.8 19.2Z"
+          />
+        </svg>
+      </a>
+      <a href="#" class="museum-header__social-link" aria-label="YouTube">
+        <svg class="museum-header__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M21.58 7.19a2.99 2.99 0 0 0-2.1-2.11C17.62 4.57 12 4.57 12 4.57s-5.62 0-7.48.51a2.99 2.99 0 0 0-2.1 2.11A31.1 31.1 0 0 0 1.9 12a31.1 31.1 0 0 0 .52 4.81 2.99 2.99 0 0 0 2.1 2.11c1.86.51 7.48.51 7.48.51s5.62 0 7.48-.51a2.99 2.99 0 0 0 2.1-2.11A31.1 31.1 0 0 0 22.1 12a31.1 31.1 0 0 0-.52-4.81ZM10.2 15.37V8.63L15.82 12l-5.62 3.37Z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="museum-header__primary">
+    <a href="#" class="museum-header__logo" aria-label="Museu do Tribunal de Justica de Sao Paulo">
+      <img class="museum-header__logo-image" src="logo13.jpg" alt="Museu do Tribunal de Justica de Sao Paulo" />
+    </a>
+
+    <nav class="museum-header__section-nav" aria-label="Museus">
+      @for (link of sectionLinks; track link.label) {
+        <a href="#" class="museum-header__section-link museum-header__section-link--{{ link.accent }}">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="museum-header__actions" aria-label="Acoes do cabecalho">
+      <button type="button" class="museum-header__search-button" aria-label="Show search">
+        <span class="museum-header__search-icon" aria-hidden="true"></span>
+      </button>
+      <a href="#" class="museum-header__tickets-button">visitação</a>
+    </div>
+  </div>
+
+  <nav class="museum-header__secondary" aria-label="Primary sections">
+    @for (link of secondaryLinks; track link) {
+      <button type="button" class="museum-header__secondary-link">
+        <span>{{ link }}</span>
+        <span class="museum-header__chevron" aria-hidden="true"></span>
+      </button>
+    }
+  </nav>
+</header>
